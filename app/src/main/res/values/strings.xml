@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">sqlit-demo</string>
+    <string name="insert_btn">insert a row</string>
+    <string name="select_btn">select rows</string>
+    <string name="update_btn">update rows</string>
+    <string name="delete_btn">delete rows</string>
+    <string name="submit_btn">submit</string>
+    <string name="cancel_btn">cancel</string>
+    <string name="retrieve_btn">retrieve</string>
+</resources>
