@@ -9,30 +9,63 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.wangpin.ice.sqlit_demo.SelectActivity">
 
-    <EditText
-        android:id="@+id/idInputBox"
-        android:layout_centerHorizontal="true"
+    <LinearLayout
+        android:id="@+id/idForm"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        style="@style/nameInputBox"/>
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
 
-    <EditText
-        android:id="@+id/nameInputBox"
-        android:layout_below="@id/idInputBox"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        style="@style/nameInputBox"/>
+        <TextView
+            android:id="@+id/idLabel"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/id_label"/>
+        <EditText
+            android:id="@+id/idInputBox"
+            style="@style/nameInputBox"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/nameForm"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/idForm"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/nameLabel"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/name_label"/>
+
+        <EditText
+            android:id="@+id/nameInputBox"
+            style="@style/nameInputBox"/>
+
+    </LinearLayout>
+
+
 
     <Spinner
         android:id="@+id/genderSpinner"
-        android:layout_below="@id/nameInputBox"
+        android:layout_below="@id/nameForm"
         android:layout_centerHorizontal="true"
         style="@style/commonSpinner"
+        android:layout_width="400dp"
         android:layout_marginTop="20dp"
         />
 
     <Button
         android:id="@+id/retrieveBtn"
         style="@style/funcBtn"
+        android:layout_width="400dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/genderSpinner"
         android:text="@string/retrieve_btn"
@@ -42,10 +75,17 @@
     <Button
         android:id="@+id/cancelBtn"
         style="@style/funcBtn"
+        android:layout_width="400dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/retrieveBtn"
         android:text="@string/cancel_btn"
         android:layout_marginTop="20dp"
         />
+
+    <ListView
+        android:id="@+id/empRows"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cancelBtn"></ListView>
 
 </RelativeLayout>

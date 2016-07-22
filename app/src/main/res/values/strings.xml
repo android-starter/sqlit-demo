@@ -7,4 +7,6 @@
     <string name="submit_btn">submit</string>
     <string name="cancel_btn">cancel</string>
     <string name="retrieve_btn">retrieve</string>
+    <string name="id_label">id</string>
+    <string name="name_label">name</string>
 </resources>

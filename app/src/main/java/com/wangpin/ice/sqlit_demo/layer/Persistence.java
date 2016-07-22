@@ -2,9 +2,11 @@ package com.wangpin.ice.sqlit_demo.layer;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.wangpin.ice.sqlit_demo.bean.EmployeeBean;
 import com.wangpin.ice.sqlit_demo.entry.EmployeeEntry;
 
 /**
@@ -59,6 +61,10 @@ public class Persistence extends SQLiteOpenHelper {
 
     public long insert(String tableName, ContentValues values){
         return getWritableDatabase().insert(tableName, null, values);
+    }
+
+    public Cursor retrieve(QueryArg args ){
+        return getWritableDatabase().query(args.getTableName(),args.getColumns(),args.getSelection(),args.getSelectionArgs(),args.getGroupBy(),args.getHaving(),args.getOrderBy());
     }
 
 }

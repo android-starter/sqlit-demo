@@ -7,6 +7,9 @@ import com.wangpin.ice.sqlit_demo.layer.Employeelayer;
  */
 public class EmployeeBean {
 
+    public EmployeeBean(){}
+
+
     public EmployeeBean(int id, String name, String gender){
         this(name, gender);
         this.id = id;
