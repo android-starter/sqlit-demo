@@ -4,8 +4,8 @@
 ## 功能
 * 添加 Done
 * 查询 Done
-* 更新 Processing
-* 删除 
+* 更新 Done
+* 删除 Processing
 * UI重构
 
 ## 开发环境

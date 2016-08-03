@@ -32,15 +32,47 @@ public class Employeelayer  {
         new Retrieve(context, listView, layout, to).execute(queryArg);
     }
 
+    public static void update(EmployeeBean employeeBean){
+        new Update().execute(employeeBean);
+    }
+
+
+
     private static class Add extends AsyncTask<EmployeeBean, Integer, Long> {
         @Override
-        protected Long doInBackground(EmployeeBean... employeBean) {
-            ContentValues values = new ContentValues();
-            values.put(EmployeeEntry.COLUMN_NAME_NAME, employeBean[0].getName());
-            values.put(EmployeeEntry.COLUMN_NAME_GENDER, employeBean[0].getGender());
-            return Persistence.getInstance().insert(EmployeeEntry.TABLE_NAME, values);
+        protected Long doInBackground(EmployeeBean... employeBeans) {
+            long insertedRows = 0;
+            for(EmployeeBean eb : employeBeans) {
+                ContentValues values = new ContentValues();
+                values.put(EmployeeEntry.COLUMN_NAME_NAME, eb.getName());
+                values.put(EmployeeEntry.COLUMN_NAME_GENDER, eb.getGender());
+                insertedRows += Persistence.getInstance().insert(EmployeeEntry.TABLE_NAME, values);
+            }
+            return insertedRows;
         }
     }
+
+    private static class Update extends AsyncTask<EmployeeBean, Integer, Long> {
+
+        @Override
+        protected Long doInBackground(EmployeeBean... employeBeans) {
+            long effectRows = 0;
+            for(EmployeeBean eb : employeBeans){
+                QueryArg arg = new QueryArg();
+                arg.setTableName(EmployeeEntry.TABLE_NAME);
+                arg.setSelection("_id = ?");
+                arg.setSelectionArgs(new String[]{eb.getId() + ""});
+                ContentValues updateVal = new ContentValues();
+                updateVal.put(EmployeeEntry.COLUMN_NAME_NAME, eb.getName());
+                updateVal.put(EmployeeEntry.COLUMN_NAME_GENDER, eb.getGender());
+                arg.setUpdateVal(updateVal);
+                effectRows += Persistence.getInstance().update(arg);
+            }
+            return effectRows;
+        }
+
+    }
+
 
     private static class Retrieve extends AsyncTask<QueryArg, Integer, Cursor> {
         private Context ctx;
@@ -66,8 +98,6 @@ public class Employeelayer  {
         protected Cursor doInBackground(QueryArg... queryArgs){
             return Persistence.getInstance().retrieve(queryArgs[0]);
         }
-
-
 
         @Override
         protected void onPostExecute(Cursor cursor){

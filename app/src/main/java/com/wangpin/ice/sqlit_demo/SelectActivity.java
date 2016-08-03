@@ -61,7 +61,7 @@ public class SelectActivity extends AppCompatActivity {
                 SelectionHelper<String> selections = new SelectionHelper();
                 List<String> selectionArgs = new ArrayList<String>();
                 if(id!=null && id.length()>0){
-                    selections.add("id = ?");
+                    selections.add("_id = ?");
                     selectionArgs.add(id);
                 }
                 if(name!=null && name.length()>0){

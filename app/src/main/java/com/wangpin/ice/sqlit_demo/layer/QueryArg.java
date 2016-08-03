@@ -1,5 +1,7 @@
 package com.wangpin.ice.sqlit_demo.layer;
 
+import android.content.ContentValues;
+
 /**
  * Created by wangpi on 7/22/2016.
  */
@@ -7,6 +9,16 @@ public class QueryArg {
     private String tableName;
     private String[] columns;
     private String selection;
+
+    public ContentValues getUpdateVal() {
+        return updateVal;
+    }
+
+    public void setUpdateVal(ContentValues updateVal) {
+        this.updateVal = updateVal;
+    }
+
+    private ContentValues updateVal;
 
     public QueryArg(){}
 

@@ -67,4 +67,9 @@ public class Persistence extends SQLiteOpenHelper {
         return getWritableDatabase().query(args.getTableName(),args.getColumns(),args.getSelection(),args.getSelectionArgs(),args.getGroupBy(),args.getHaving(),args.getOrderBy());
     }
 
+    public long update(QueryArg args){
+        return getWritableDatabase().update(args.getTableName(),args.getUpdateVal(),args.getSelection(),args.getSelectionArgs());
+    }
+
+
 }

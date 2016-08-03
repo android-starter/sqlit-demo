@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/updateContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wangpin.ice.sqlit_demo.UpdateActivity">
+
+    <ListView
+        android:id="@+id/updatable_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+
+    <LinearLayout
+        android:id="@+id/updateForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/nameInputBox"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            style="@style/nameInputBox"/>
+
+        <Spinner
+            android:id="@+id/genderSpinner"
+            android:layout_centerHorizontal="true"
+            style="@style/commonSpinner"
+            android:layout_marginTop="20dp"
+            />
+
+        <Button
+            android:id="@+id/submitBtn"
+            style="@style/funcBtn"
+            android:layout_centerHorizontal="true"
+            android:text="@string/submit_btn"
+            android:layout_marginTop="20dp"
+            />
+
+        <Button
+            android:id="@+id/cancelBtn"
+            style="@style/funcBtn"
+            android:layout_centerHorizontal="true"
+            android:text="@string/cancel_btn"
+            android:layout_marginTop="20dp"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
