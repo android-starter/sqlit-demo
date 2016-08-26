@@ -5,8 +5,8 @@
 * 添加 Done
 * 查询 Done
 * 更新 Done
-* 删除 Processing
-* UI重构
+* 删除 Done
+* UI重构 Working
 
 ## 开发环境
 * os: win7
