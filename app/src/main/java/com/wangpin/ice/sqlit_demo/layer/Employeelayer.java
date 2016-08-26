@@ -36,6 +36,9 @@ public class Employeelayer  {
         new Update().execute(employeeBean);
     }
 
+    public static void delete(EmployeeBean... employeBeans){
+        new Delete().execute(employeBeans);
+    }
 
 
     private static class Add extends AsyncTask<EmployeeBean, Integer, Long> {
@@ -114,5 +117,20 @@ public class Employeelayer  {
 
     }
 
+    private static class Delete extends AsyncTask<EmployeeBean, Integer, Long>{
+
+        @Override
+        protected Long doInBackground(EmployeeBean... employeBeans) {
+            long effectRows = 0;
+            for(EmployeeBean eb : employeBeans){
+                QueryArg arg = new QueryArg();
+                arg.setTableName(EmployeeEntry.TABLE_NAME);
+                arg.setSelection("_id = ?");
+                arg.setSelectionArgs(new String[]{eb.getId() + ""});
+                effectRows += Persistence.getInstance().delete(arg);
+            }
+            return effectRows;
+        }
+    }
 
 }

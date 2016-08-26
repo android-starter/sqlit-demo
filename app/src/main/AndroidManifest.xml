@@ -16,8 +16,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddActivity" />
-        <activity android:name=".SelectActivity"></activity>
-        <activity android:name=".UpdateActivity"></activity>
+        <activity android:name=".SelectActivity"/>
+        <activity android:name=".UpdateActivity"/>
+        <activity android:name=".DeleteActivity"/>
     </application>
 
 </manifest>
